@@ -73,15 +73,6 @@ nav {
 
 }
 
-.main-calendar {
-
-    width: 50%;
-    height: 420px;
-    position: absolute;
-    top: 15%;
-    left: 50%;
-
-}
 
 .main-content {
 
@@ -109,20 +100,30 @@ nav {
     color: rgba(255, 255, 255, 0.819);
 }
 
+/* 
+.main-calendar {
+
+    width: 50%;
+    height: 420px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+
+}
 .main-calendar {
     margin-top: 20px;
     border: 1px solid #cccccc;
     padding: 20px;
     background-color: #bbbbc2;
     /* thay đổi màu nền */
-    width: 600px;
-    /* thay đổi kích thước */
-}
+/* width: 600px; */
+/* thay đổi kích thước */
+/* } */
 
 
 
 /* Define the calendar table grid */
-.custom-calendar {
+/* .custom-calendar {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -249,3 +250,5 @@ nav {
     font-family: Arial, sans-serif;
 
 }
+
+*/

@@ -1,11 +1,19 @@
 import React from 'react'
 import { Home } from './pages/Home';
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Booking } from './pages/Booking';
+import Cal from './components/Header/calender.js';
 export default function App() {
   return (
-    <div className='App'>
-      <Home />
-    </div>
+    <Router>
+      <div className='App'>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Booking" element={<Booking />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

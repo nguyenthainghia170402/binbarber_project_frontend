@@ -1,19 +1,21 @@
 import './style.css'
 import React, { useState } from 'react';
-import Calendar from 'react-calendar'
 
+// import Calendar from 'react-calendar'
+import { Home } from '../../pages/Home';
 
-const ReactCalendar = () => {
-    const [date, setDate] = useState(new Date());
-    const onChange = date => {
-        setDate(date);
-    };
-    return (
-        <div>
-            <Calendar className=" custom-calendar" onChange={onChange} values={date} />
-        </div>
-    );
-};
+import Cal from "../../components/Header/calender.js";
+// const ReactCalendar = () => {
+//     const [date, setDate] = useState(new Date());
+//     const onChange = date => {
+//         setDate(date);
+//     };
+//     return (
+//         <div>
+//             <Calendar className=" custom-calendar" onChange={onChange} values={date} />
+//         </div>
+//     );
+// };
 
 function Header() {
     return (
@@ -24,11 +26,11 @@ function Header() {
                 </a>
                 <div>
                     <ul id="navbar">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Booking</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Sftaff</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/Booking">Booking</a></li>
+                        <li><a href="/Blog">Blog</a></li>
+                        <li><a href="/Services">Services</a></li>
+                        <li><a href="/Staff">Staff</a></li>
 
                     </ul>
                 </div>
@@ -46,9 +48,10 @@ function Header() {
                 </div>
 
                 <div className='main-calendar'>
+                    <Cal />
 
-                    <ReactCalendar className='english-text' />
                 </div>
+
 
             </div>
 
