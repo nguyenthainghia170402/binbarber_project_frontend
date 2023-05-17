@@ -10,21 +10,23 @@ function Cal() {
     const [value, setVaule] = React.useState(new Date());
 
     return (
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <StaticDatePicker
-                orientation="portrait"
-                openTo="day"
-                value={value}
-                className="calender-delete"
+        <div className="calender-container">
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <StaticDatePicker
+                    orientation="portrait"
+                    openTo="day"
+                    value={value}
+                    className="calender-delete"
 
-                onChange={(NewValue) => {
-                    setVaule(NewValue);
-                }}
-                renderInput={(params) => <TextField {...params} />
-                }
-                showToolbar={false} // Tắt toolbar
-            />
-        </LocalizationProvider>
+                    onChange={(NewValue) => {
+                        setVaule(NewValue);
+                    }}
+                    renderInput={(params) => <TextField {...params} />
+                    }
+                    showToolbar={false} // Tắt toolbar
+                />
+            </LocalizationProvider>
+        </div>
     )
 }
 export default Cal;

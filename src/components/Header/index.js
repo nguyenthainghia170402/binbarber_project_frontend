@@ -1,24 +1,24 @@
 import './style.css'
 import React, { useState } from 'react';
-
-// import Calendar from 'react-calendar'
-import { Home } from '../../pages/Home';
-
+// import { Home } from '../pages/Home';
 import Cal from "../../components/Header/calender.js";
-// const ReactCalendar = () => {
-//     const [date, setDate] = useState(new Date());
-//     const onChange = date => {
-//         setDate(date);
-//     };
-//     return (
-//         <div>
-//             <Calendar className=" custom-calendar" onChange={onChange} values={date} />
-//         </div>
-//     );
-// };
+import moment from 'moment';
 
 function Header() {
+    const [bookingDate, setBookingDate] = useState(null);
+
+    const handleDayClick = (event) => {
+        const date = event.currentTarget.getAttribute('data-mui-pickers-day');
+        setBookingDate(moment(date));
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('Submit booking form for', bookingDate.format('YYYY-MM-DD'));
+        // Thực hiện hành động đăng ký bằng dữ liệu được nhập từ form booking
+    }
     return (
+
         <div className='container'>
             <nav>
                 <a>
@@ -48,7 +48,34 @@ function Header() {
                 </div>
 
                 <div className='main-calendar'>
-                    <Cal />
+                    <Cal onDayClick={handleDayClick} />
+                    {bookingDate && (
+                        <form onSubmit={handleSubmit}>
+                            <h2>Booking for {bookingDate.format('YYYY-MM-DD')}</h2>
+                            <label>
+                                Name:
+                                <input type='text' name='name' />
+                            </label>
+                            <label>
+                                Email:
+                                <input type='email' name='email' />
+                            </label>
+                            <label>
+                                Phone:
+                                <input type='tel' name='phone' />
+                            </label>
+                            <label>
+                                Service:
+                                <select name='service'>
+                                    <option value='Haircut'>Haircut</option>
+                                    <option value='Beard trim'>Beard trim</option>
+                                    <option value='Shave'>Shave</option>
+                                    <option value='Coloring'>Coloring</option>
+                                </select>
+                            </label>
+                            <input type='submit' value='Submit' />
+                        </form>
+                    )}
 
                 </div>
 
