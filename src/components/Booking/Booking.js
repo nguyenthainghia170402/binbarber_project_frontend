@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './booking.css';
 import TextField from '@material-ui/core/TextField';
-import { Button } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+
 
 const Booking = () => {
     const [name, setName] = useState('');
@@ -17,76 +18,110 @@ const Booking = () => {
         e.preventDefault();
         // Do something with the form data here
     };
+    const stylists = [
+        { id: 1, name: 'John' },
+        { id: 2, name: 'Jane' },
+        { id: 3, name: 'David' },
+    ];
 
+    const stylistOptions = stylists.map((stylist) => (
+        <option key={stylist.id} value={stylist.name}>
+            {stylist.name}
+        </option>
+    ));
     return (
-        <div className="booking-container">
-            <form onSubmit={handleSubmit}>
-                <Grid container spacing={3}>
-                    <Grid item xs={12}>
-                        <TextField required id="name" label="Họ và tên" value={name} onChange={(e) => setName(e.target.value)} />
+        <>  <h1 className='title'>Binbarber_Haircut_Booking </h1>
+            <div className="booking-container">
+
+
+                <form onSubmit={handleSubmit}>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12}>
+                            <TextField required id="name" label="Họ và tên" value={name} onChange={(e) => setName(e.target.value)} />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField required id="phone" label="Số điện thoại" type="tel" pattern="[0-9]{10}" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField required id="email" label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        </Grid>
+
+                        <Grid item xs={12}>
+                            <TextField required id="datetime-local" label="Ngày giờ hẹn" type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)} />
+                        </Grid>
+
+                        <Grid item xs={12}>
+                            <TextField
+                                required
+                                id="service"
+                                select
+                                label="Loại dịch vụ"
+                                SelectProps={{
+                                    native: true,
+                                }}
+                                value={service}
+                                onChange={(e) => setService(e.target.value)}
+                            >
+                                <option value=""></option>
+                                <option value="haircut">Cắt tóc</option>
+                                <option value="haircolor">Nhuộm tóc</option>
+                                <option value="hairstyle">Tạo kiểu tóc</option>
+                            </TextField>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                id="stylist"
+                                select
+                                label="Nhân viên"
+                                SelectProps={{
+                                    native: true,
+                                }}
+                                value={stylist}
+                                onChange={(e) => setStylist(e.target.value)}
+                            >
+                                <option value=""></option>
+                                {stylistOptions}
+                            </TextField>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                id="stylist"
+                                select
+                                label="Stylist"
+                                SelectProps={{
+                                    native: true,
+                                }}
+                                value={stylist}
+                                onChange={(e) => setStylist(e.target.value)}
+                            >
+                                <option value=""></option>
+                                <option value="john">John</option>
+                                <option value="jane">Jane</option>
+                                <option value="david">David</option>
+                            </TextField>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                id="notes"
+                                label="Ghi chú"
+                                multiline
+                                rows={4}
+                                value={notes}
+                                onChange={(e) => setNotes(e.target.value)}
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Button variant="contained" color="primary" type="submit">
+                                Đặt lịch
+                            </Button>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12}>
-                        <TextField required id="phone" label="Số điện thoại" type="tel" pattern="[0-9]{10}" value={phone} onChange={(e) => setPhone(e.target.value)} />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField required id="email" label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField required id="datetime-local" label="Ngày giờ hẹn" type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)} />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField
-                            required
-                            id="service"
-                            select
-                            label="Loại dịch vụ"
-                            SelectProps={{
-                                native: true,
-                            }}
-                            value={service}
-                            onChange={(e) => setService(e.target.value)}
-                        >
-                            <option value=""></option>
-                            <option value="haircut">Cắt tóc</option>
-                            <option value="haircolor">Nhuộm tóc</option>
-                            <option value="hairstyle">Tạo kiểu tóc</option>
-                        </TextField>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField
-                            id="stylist"
-                            select
-                            label="Stylist"
-                            SelectProps={{
-                                native: true,
-                            }}
-                            value={stylist}
-                            onChange={(e) => setStylist(e.target.value)}
-                        >
-                            <option value=""></option>
-                            <option value="john">John</option>
-                            <option value="jane">Jane</option>
-                            <option value="david">David</option>
-                        </TextField>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField
-                            id="notes"
-                            label="Ghi chú"
-                            multiline
-                            rows={4}
-                            value={notes}
-                            onChange={(e) => setNotes(e.target.value)}
-                        />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Button variant="contained" color="primary" type="submit">
-                            Đặt lịch
-                        </Button>
-                    </Grid>
-                </Grid>
-            </form>
-        </div>
+                </form>
+            </div>
+
+
+        </>
+
     );
 };
 

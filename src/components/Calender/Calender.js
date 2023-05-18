@@ -6,7 +6,6 @@ import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 import { TextField } from "@mui/material";
 import './calender.css';
 import moment from 'moment'
-import Register from "../register/Register";
 import { useNavigate } from 'react-router-dom';
 
 function Calender() {
