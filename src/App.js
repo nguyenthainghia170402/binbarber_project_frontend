@@ -5,7 +5,7 @@ import { Booking } from './pages/Booking';
 import { Login } from './pages/Auth/Login/Login';
 import { Register } from './pages/Auth/Register/Register';
 import AdminApp from './admin/app/index';
-import { ProSidebarProvider } from 'react-pro-sidebar';
+
 
 export default function App() {
     return (
@@ -16,7 +16,7 @@ export default function App() {
                     <Route path="/Booking" element={<Booking />} />
                     <Route path="/Login" element={<Login />} />
                     <Route path="/Register" element={<Register />} />
-                    <Route path="/Admin" element={<AdminApp />} />
+                    <Route path="/Admin/*" element={<AdminApp />} />
                 </Routes>
             </div>
         </Router>
