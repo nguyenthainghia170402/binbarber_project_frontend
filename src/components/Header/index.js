@@ -1,12 +1,17 @@
-import './style.css'
+import './style.css';
 import React, { useState } from 'react';
 // import { Home } from '../pages/Home';
-import Cal from '../Calender/Calender.js';
-import { Link } from 'react-router-dom';
+import Cal from "../../components/Header/calender.js";
+import moment from 'moment';
 
 
 function Header() {
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('Submit booking form for', bookingDate.format('YYYY-MM-DD'));
+        // Thực hiện hành động đăng ký bằng dữ liệu được nhập từ form booking
+    }
     return (
 
 
@@ -27,8 +32,6 @@ function Header() {
             </div>
         </div>
 
-
     )
 }
-
-export default Header;  
+export default Header;
