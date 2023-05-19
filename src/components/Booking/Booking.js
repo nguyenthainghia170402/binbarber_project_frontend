@@ -14,9 +14,15 @@ const Booking = () => {
     const [stylist, setStylist] = useState('');
     const [notes, setNotes] = useState('');
 
+    // Add state to keep track of whether login form should be displayed
+    const [showLoginForm, setShowLoginForm] = useState(false);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         // Do something with the form data here
+    };
+    const handleBookingClick = () => {
+        setShowLoginForm(true);
     };
     const stylists = [
         { id: 1, name: 'John' },
@@ -30,24 +36,28 @@ const Booking = () => {
         </option>
     ));
     return (
-        <>  <h1 className='title'>Binbarber_Haircut_Booking </h1>
+        <div className='booking-main'>
+            <h1 className='title'>Binbarber Haircut Booking </h1>
             <div className="booking-container">
 
 
                 <form onSubmit={handleSubmit}>
-                    <Grid container spacing={3}>
+                    <Grid container spacing={3} className="input-field">
                         <Grid item xs={12}>
-                            <TextField required id="name" label="Họ và tên" value={name} onChange={(e) => setName(e.target.value)} />
+                            <TextField required id="name" label="FullName" value={name} onChange={(e) => setName(e.target.value)} />
+
+
                         </Grid>
                         <Grid item xs={12}>
-                            <TextField required id="phone" label="Số điện thoại" type="tel" pattern="[0-9]{10}" value={phone} onChange={(e) => setPhone(e.target.value)} />
+
+                            <TextField required id="phone" label="Telephone" type="tel" pattern="[0-9]{10}" value={phone} onChange={(e) => setPhone(e.target.value)} />
                         </Grid>
                         <Grid item xs={12}>
                             <TextField required id="email" label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         </Grid>
 
                         <Grid item xs={12}>
-                            <TextField required id="datetime-local" label="Ngày giờ hẹn" type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)} />
+                            <TextField required id="datetime-local" label="" type="datetime-local" value={date} onChange={(e) => setDate(e.target.value)} />
                         </Grid>
 
                         <Grid item xs={12}>
@@ -55,7 +65,7 @@ const Booking = () => {
                                 required
                                 id="service"
                                 select
-                                label="Loại dịch vụ"
+                                label="Service"
                                 SelectProps={{
                                     native: true,
                                 }}
@@ -63,16 +73,16 @@ const Booking = () => {
                                 onChange={(e) => setService(e.target.value)}
                             >
                                 <option value=""></option>
-                                <option value="haircut">Cắt tóc</option>
-                                <option value="haircolor">Nhuộm tóc</option>
-                                <option value="hairstyle">Tạo kiểu tóc</option>
+                                <option value="haircut">Haircut</option>
+                                <option value="haircolor">Haircolor</option>
+                                <option value="hairstyle">Hairstyle</option>
                             </TextField>
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
-                                id="stylist"
+                                id="staff"
                                 select
-                                label="Nhân viên"
+                                label="Staff"
                                 SelectProps={{
                                     native: true,
                                 }}
@@ -103,7 +113,7 @@ const Booking = () => {
                         <Grid item xs={12}>
                             <TextField
                                 id="notes"
-                                label="Ghi chú"
+                                label="Notes"
                                 multiline
                                 rows={4}
                                 value={notes}
@@ -112,7 +122,7 @@ const Booking = () => {
                         </Grid>
                         <Grid item xs={12}>
                             <Button variant="contained" color="primary" type="submit">
-                                Đặt lịch
+                                Booking
                             </Button>
                         </Grid>
                     </Grid>
@@ -120,7 +130,7 @@ const Booking = () => {
             </div>
 
 
-        </>
+        </div>
 
     );
 };
