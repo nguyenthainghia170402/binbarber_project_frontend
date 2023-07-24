@@ -1,37 +1,80 @@
 import './style.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import { Home } from '../pages/Home';
-import Cal from "../../components/Header/calender.js";
-import moment from 'moment';
+import { Link, useNavigate } from 'react-router-dom';
+import logo from '../../background/binbarber-shop-logo3.png';
+import * as authServices from '../../services/authServices';
 
+const Header = () => {
+    const navigate = useNavigate();
+    const logged = localStorage.getItem('user_id');
 
-function Header() {
+    const [isScrolled, setIsScrolled] = useState(false);
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log('Submit booking form for', bookingDate.format('YYYY-MM-DD'));
-        // Thực hiện hành động đăng ký bằng dữ liệu được nhập từ form booking
-    }
+    const handleScroll = () => {
+        const scrollTop = window.pageYOffset;
+
+        // Kiểm tra vị trí cuộn trang
+        if (scrollTop > 0) {
+            setIsScrolled(true);
+        } else {
+            setIsScrolled(false);
+        }
+    };
+
+    useEffect(() => {
+        // Đăng ký sự kiện cuộn trang
+        window.addEventListener('scroll', handleScroll);
+
+        // Hủy đăng ký sự kiện khi component bị hủy
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    const handleLogout = async () => {
+        try {
+            const result = await authServices.logout();
+            if (result.status == 200) {
+                localStorage.removeItem('user_id');
+                navigate('/');
+            }
+        } catch (error) {}
+    };
+
     return (
-
-
-        <div className='header'>
-            <div className='header-logo'>
-                <a className='logo'>
-                    <svg id="logo-38" width="78" height="32" viewBox="0 0 78 32" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M55.5 0H77.5L58.5 32H36.5L55.5 0Z" class="ccustom" fill="#FF7A00"></path> <path d="M35.5 0H51.5L32.5 32H16.5L35.5 0Z" class="ccompli1" fill="#FF9736"></path> <path d="M19.5 0H31.5L12.5 32H0.5L19.5 0Z" class="ccompli2" fill="#FFBC7D"></path> </svg>
-                </a>
-                <h1 className='container-title'> BINBARBER HAIRCUT</h1>
+        <div className={`header ${isScrolled ? 'header-scroll' : ''}`}>
+            <div className="header-logo">
+                <img className="logo" src={logo} alt="Logo" />
+                {/* <h1 className='container-title'> BINBARBER HAIRCUT</h1> */}
             </div>
-            <div className='navbar'>
-                <Link className='navber-link' to="/">Home</Link>
-                <Link className='navber-link' to="/booking">Booking</Link>
-                <Link className='navber-link' to="/blog">Blog</Link>
-                <Link className='navber-link' to="/services">Services</Link>
-                <Link className='navber-link' to="/staff">Staff</Link>
-                <Link className='navber-link' to='/login'>Login</Link>
+            <div className="navbar">
+                <Link className="navbar-link" to="/">
+                    Home
+                </Link>
+                <Link className="navbar-link" to="/booking">
+                    Booking
+                </Link>
+                <Link className="navbar-link" to="/blog">
+                    Blog
+                </Link>
+                <Link className="navbar-link" to="/services">
+                    Services
+                </Link>
+                <Link className="navbar-link" to="/staff">
+                    Staff
+                </Link>
+                {logged ? (
+                    <Link className="navbar-link" onClick={handleLogout}>
+                        Logout
+                    </Link>
+                ) : (
+                    <Link className="navbar-link" to="/login">
+                        Login
+                    </Link>
+                )}
             </div>
         </div>
-
-    )
-}
+    );
+};
 export default Header;

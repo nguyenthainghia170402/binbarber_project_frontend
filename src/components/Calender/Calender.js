@@ -34,6 +34,7 @@ function Calender() {
                     className="calender-delete"
                     onChange={(date) => setBookingDate(date)}
                     onDayClick={handleDayClick}
+                    disablePast
 
                     // onChange={(NewValue) => {
                     //     setVaule(NewValue);

@@ -62,7 +62,7 @@ const styleTitle = {
     fontSize: '25px',
 };
 
-export const Login = () => {
+export const Login = (props) => {
     const navigate = useNavigate();
 
     const vertical = 'bottom';
@@ -103,12 +103,25 @@ export const Login = () => {
             account: account,
             password: password,
         });
-        if (result.message === 'You are already logged in with admin permission') {
+        // if (result.status === 'You are already logged in with admin permission') {
+        //     navigate('/Admin');
+        // } else if (result.data.message === 'You are already logged in') {
+        //     navigate('/');
+        // } else {
+        //     handleSnack();
+        // }
+
+        if (result.status === 201) {
+            props.setToken(result.data.access_token);
+            localStorage.setItem('user_id', result.data.user_id);
             navigate('/Admin');
-        } else if (result.message === 'You are already logged in') {
+        } else if (result.status === 200) {
+            props.setToken(result.data.access_token);
+            localStorage.setItem('user_id', result.data.user_id);
             navigate('/');
         } else {
             handleSnack();
+            console.log(result.status);
         }
     };
 

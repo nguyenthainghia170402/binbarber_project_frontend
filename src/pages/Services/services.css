@@ -1,0 +1,86 @@
+.services {
+    text-align: center;
+    background-color: #52b7bd;
+    color: #fff;
+}
+
+.title-service {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.service-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.service-button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    border: none;
+    background-color: transparent;
+    color: #51585e;
+    cursor: pointer;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.service-button:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+.service-button:hover:after {
+    width: 100%;
+}
+
+.service-button:hover {
+    color: #fff;
+}
+
+.service-button.active {
+    color: #fff;
+    font-weight: bold;
+}
+
+.service-details {
+    margin-top: 2rem;
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.service-details h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    font-size: 1.2rem;
+}
+
+.service_info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-basis: 50%;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.service-details .service_info {
+    margin-bottom: 10px;
+}
+
+.service-button:hover + .service-button-group .service-button {
+    display: none;
+}

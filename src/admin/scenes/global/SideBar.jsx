@@ -16,6 +16,10 @@ import PieChartOutlineOutlinedIcon from '@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+import FormatListNumberedOutlinedIcon from '@mui/icons-material/FormatListNumberedOutlined';
+import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
+import NewspaperOutlinedIcon from '@mui/icons-material/NewspaperOutlined';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
     const theme = useTheme();
@@ -67,7 +71,6 @@ const Sidebar = () => {
                 '& .MuiBox-root.css-1l8icbj': {
                     padding: '0',
                 },
-                
             }}
         >
             <ProSidebar collapsed={isCollapsed}>
@@ -123,7 +126,7 @@ const Sidebar = () => {
                     <Box paddingLeft={isCollapsed ? undefined : '10%'}>
                         <Item
                             title="Dashboard"
-                            to="/Admin/dashboard"
+                            to="/Admin/"
                             icon={<HomeOutlinedIcon />}
                             selected={selected}
                             setSelected={setSelected}
@@ -133,23 +136,30 @@ const Sidebar = () => {
                             Data
                         </Typography>
                         <Item
-                            title="Manage Team"
+                            title="Manage Barbers"
                             to="/Admin/team"
                             icon={<PeopleOutlinedIcon />}
                             selected={selected}
                             setSelected={setSelected}
                         />
                         <Item
-                            title="Contacts Information"
+                            title="Manage Customers"
                             to="/Admin/contacts"
                             icon={<ContactsOutlinedIcon />}
                             selected={selected}
                             setSelected={setSelected}
                         />
                         <Item
-                            title="Invoices Balances"
-                            to="/Admin/invoices"
+                            title="Manage Bookings"
+                            to="/Admin/bookings/"
                             icon={<ReceiptOutlinedIcon />}
+                            selected={selected}
+                            setSelected={setSelected}
+                        />
+                        <Item
+                            title="Manage Worktime"
+                            to="/Admin/bookings/"
+                            icon={<AccessTimeOutlinedIcon />}
                             selected={selected}
                             setSelected={setSelected}
                         />
@@ -157,6 +167,27 @@ const Sidebar = () => {
                         <Typography variant="h6" color={colors.grey[300]} sx={{ m: '15px 0 5px 20px' }}>
                             Pages
                         </Typography>
+                        <Item
+                            title="Services"
+                            to="/Admin/form"
+                            icon={<FormatListNumberedOutlinedIcon />}
+                            selected={selected}
+                            setSelected={setSelected}
+                        />
+                        <Item
+                            title="Customer Images"
+                            to="/Admin/form"
+                            icon={<ImageOutlinedIcon />}
+                            selected={selected}
+                            setSelected={setSelected}
+                        />
+                        <Item
+                            title="Blogs"
+                            to="/Admin/form"
+                            icon={<NewspaperOutlinedIcon />}
+                            selected={selected}
+                            setSelected={setSelected}
+                        />
                         <Item
                             title="Profile Form"
                             to="/Admin/form"
@@ -180,7 +211,7 @@ const Sidebar = () => {
                         />
 
                         <Typography variant="h6" color={colors.grey[300]} sx={{ m: '15px 0 5px 20px' }}>
-                            Charts
+                            Statistics
                         </Typography>
                         <Item
                             title="Bar Chart"
@@ -200,13 +231,6 @@ const Sidebar = () => {
                             title="Line Chart"
                             to="/Admin/line"
                             icon={<TimelineOutlinedIcon />}
-                            selected={selected}
-                            setSelected={setSelected}
-                        />
-                        <Item
-                            title="Geography Chart"
-                            to="/Admin/geography"
-                            icon={<MapOutlinedIcon />}
                             selected={selected}
                             setSelected={setSelected}
                         />

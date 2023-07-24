@@ -1,0 +1,28 @@
+.container-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.title-booking {
+    color: #9f7150;
+    font-family: 'Prata', sans-serif;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 40px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.subtitle-booking {
+    color: #737373;
+    font-family: 'PT Sans Caption', sans-serif;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 40px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
