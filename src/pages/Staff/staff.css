@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+}
+
+.staff-container {
+    background-color: #161616;
+    padding: 100px 10%;
+    align-items: center;
+    box-sizing: border-box;
+    font-family: 'Sorts Mill Goudy', sans-serif;
+}
+
+.body-center {
+    width: 75%;
+    margin-bottom: 24px;
+    justify-content: center;
+}
+
+.staff-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.staff-item {
+    width: 200px;
+    margin: 10px;
+    text-align: center;
+}
+
+.staff-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.team-heading {
+    font-family: 'S&s hilborn four', sans-serif;
+    color: #a16a38;
+    font-weight: 400;
+    text-align: center;
+}
+
+.family-heading {
+    text-align: center;
+    color: #719274;
+    margin: top 0;
+    line-height: 48px;
+    font-weight: 300;
+    font-size: 38px;
+    margin-bottom: 10px;
+    margin: 0, 67em 0;
+}
+
+.staff-p {
+    text-align: center;
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    margin-bottom: 16px;
+    font-size: 18px;
+    line-height: 31px;
+    color: #fff;
+    margin-top: 0;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.staff-item {
+    position: relative;
+    display: inline-block;
+}
+
+.staff-item img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.staff-item h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.staff-item:hover h3 {
+    opacity: 1;
+}

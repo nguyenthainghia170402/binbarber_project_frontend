@@ -1,0 +1,118 @@
+.carousel {
+    overflow: hidden;
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inner {
+    white-space: nowrap;
+    transition: transform 0.3s;
+    // box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.carousel-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1200px;
+    height: 450px;
+}
+
+.carousel-item-content {
+    margin: 40px 0 40px 0;
+    padding: 0 20px 0 20px;
+    white-space: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+}
+
+.carousel-item-name {
+    font-family: 'Prata', sans-serif;
+    color: #989898;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 21px;
+    margin-bottom: 5px;
+}
+.carousel-item-forte {
+    opacity: 0.5;
+    color: #bc865f;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    margin-bottom: 5px;
+}
+.carousel-item-birthday {
+    opacity: 0.5;
+    color: #bc865f;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    margin-bottom: 25px;
+}
+.carousel-item-description {
+    line-height: 24px;
+    font-size: 14px;
+    font-family: 'PT Sans Caption', sans-serif;
+    letter-spacing: 0.28px;
+    padding-right: 10px;
+    margin-bottom: 45px;
+    color: #989898;
+}
+
+.carousel-avatar {
+}
+.carousel-img {
+    width: 250px;
+    padding: 0 20px 0 20px;
+}
+
+.carousel-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button-arrow {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.arrow-symbol {
+    color: #ffffff;
+}
+
+.arrow-symbol:hover {
+    color: #9f7150;
+}
+
+.indicators {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.indicator-buttons {
+    border: none;
+    cursor: pointer;
+}
+
+.indicators > button {
+    margin: 5px;
+    background: none;
+}
+
+.indicator-symbol {
+    color: #ffffff;
+}
+
+.indicator-symbol-active {
+    color: #9f7150;
+}
